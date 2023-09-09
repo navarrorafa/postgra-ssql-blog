@@ -1,20 +1,7 @@
 const querieEntries = require('./queries.js')
-const {Pool} = require('pg')
-// const {conectPool} = require('../utils/connectPool.js');
+const {pool} = require('../utils/connectPool')
 
 
- 
-// conectPool
-
-const pool = new Pool({
-    host: 'localhost',
-    user: 'postgres',
-    database:'blog' ,
-    password: "1234"
-
-  });
-
-//getAllEntries  OK 
 
 const getAllEntries= async ()=> {
     let client , result;

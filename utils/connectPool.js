@@ -1,6 +1,6 @@
 const {Pool} = require('pg')
 
-const conectPool = new Pool({
+const pool = new Pool({
     host: 'localhost',
     user: 'postgres',
     database:'blog' ,
@@ -8,4 +8,4 @@ const conectPool = new Pool({
 
   });
 
-  module.exports = {conectPool}
+  module.exports = {pool}

@@ -28,7 +28,7 @@ const cogerEntries = async (req, res) => {
         console.log(error)
         res.status(500).json({
             ok: true,
-            msg: 'Hable con el admin'
+            msg: 'Contacte el adm'
         });
 
     }
@@ -44,7 +44,7 @@ const crearEntries = async (req, res) => {
         if (!id_author || !title || !content || !category) {
             return res.status(400).json({
                 ok: false,
-                msg: "Debes completar todos los campos"
+                msg: "rellene todos los campos"
             });
         }
 
@@ -53,7 +53,7 @@ const crearEntries = async (req, res) => {
         if (data) {
             res.status(200).json({
                 ok: true,
-                msg: 'Entrada creada con éxito',
+                msg: 'Entrada creada',
                 data
             });
         } else {
@@ -63,7 +63,7 @@ const crearEntries = async (req, res) => {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Hable con el administrador'
+            msg: 'Contacte el adm'
         });
     }
 };
@@ -73,21 +73,21 @@ const crearEntries = async (req, res) => {
 const actualizarEntries = async (req, res) => {
     let data;
     try {
-        const id_entry = req.params.id_entry; // Obtém o id_entry da URL
-        const { title, content } = req.body; // Obtém title e content do corpo da solicitação
+        const id_entry = req.params.id_entry; 
+        const { title, content } = req.body; 
 
-        // Verifica se os campos title e content estão presentes na solicitação
+        
         if (!title || !content) {
             return res.status(400).json({
                 ok: false,
-                msg: 'El título y el contenido son campos obligatorios para la actualización.',
+                msg: 'El título ou el contenido es obligatorio',
             });
         }
 
-        // Obtenha os dados originais da notícia
+        // Obtenho os dados originais da notícia
         const originalData = await getById(id_entry);
 
-        // Verifique se tanto o título quanto o conteúdo são iguais aos dados originais
+        // Verifico se sao iguais
         if (title === originalData.title && content === originalData.content) {
             return res.status(200).json({
                 ok: true,
@@ -103,14 +103,14 @@ const actualizarEntries = async (req, res) => {
 
         res.status(200).json({
             ok: true,
-            msg: 'Noticia actualizada con éxito',
+            msg: 'Noticia actualizada ',
             data: updatedData, // Retorne os dados atualizados da notícia
         });
     } catch (error) {
         console.error(error);
         res.status(500).json({
             ok: false,
-            msg: 'Hable con el admin',
+            msg: 'Contacte el adm'
         });
     }
 };

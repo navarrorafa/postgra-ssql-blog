@@ -14,7 +14,8 @@ app.use(bodyParser.json())
 app.use(express.json());
 
 
-app.use('/api/v1/blog/entries', require('./routes/entriesRoutes'))
+app.use('/api/v1/blog/entries', require('./routes/entriesRoutes'));
+app.use('/api/v1/blog/author', require('./routes/authorRoutes') )
 
 
 
